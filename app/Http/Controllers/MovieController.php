@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Http\Requests\MovieRequest;
 
 class MovieController extends Controller
 {
@@ -12,31 +13,32 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        return Movie::paginate(10);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MovieRequest $request)
     {
-        //
+        return Movie::create($request->validated());
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show($id)
     {
-        //
+        return Movie::findOrFail($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movie $movie)
+    public function update(MovieRequest $request, Movie $movie)
     {
-        //
+        $movie->fill($request->validated());
+        return $movie->save();
     }
 
     /**
@@ -44,6 +46,9 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        //
+        if($movie->delete()){
+            return response(null, 200);
+        }
+        return null;
     }
 }

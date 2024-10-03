@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('hall_id')->references('id')->on('halls');
             $table->integer('row');
             $table->integer('seat');
-            $table->boolean('is_vip');
+            $table->boolean('is_vip')->default(false);
         });
     }
 

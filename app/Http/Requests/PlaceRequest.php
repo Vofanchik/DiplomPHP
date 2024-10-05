@@ -11,7 +11,7 @@ class PlaceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class PlaceRequest extends FormRequest
             'hall_id' => 'required|numeric',
             'is_vip' => 'required|boolean',
             'row' => 'required|numeric',
-            'seat' => 'required|boolean'
+            'seat' => 'required|numeric'
         ];
     }
 }

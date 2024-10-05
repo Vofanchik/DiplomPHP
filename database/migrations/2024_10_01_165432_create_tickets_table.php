@@ -16,8 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('place_id');
             $table->integer('sess_id');
-            $table->foreign('place_id')->references('id')->on('places');
-            $table->foreign('sess_id')->references('id')->on('sesses');
+            $table->foreign('place_id')->references('id')->on('places')->constrained()->onDelete('cascade');;
+            $table->foreign('sess_id')->references('id')->on('sesses')->constrained()->onDelete('cascade');;
         });
     }
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->integer('hall_id');
-            $table->foreign('hall_id')->references('id')->on('halls');
+            $table->foreign('hall_id')->references('id')->on('halls')->constrained()->onDelete('cascade');
             $table->integer('row');
             $table->integer('seat');
             $table->boolean('is_vip')->default(false);

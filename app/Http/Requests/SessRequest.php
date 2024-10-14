@@ -24,7 +24,7 @@ class SessRequest extends FormRequest
         return [
             'hall_id' => 'required|numeric',
             'movie_id' => 'required|numeric',
-            'start_at' => 'required|date_format:Y-m-dH:i', //2005-08-1515:52
+            'start_at' => 'required|date_format:Y-m-d H:i', //2005-08-15 15:52
 
         ];
     }

@@ -12,7 +12,7 @@ class SessController extends Controller
    */
   public function index()
   {
-      return Sess::paginate(10);
+      return Sess::whereBetween("start_at", ["2024-10-12","2024-10-19"])->get();
   }
 
   /**

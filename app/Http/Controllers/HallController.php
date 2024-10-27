@@ -12,7 +12,7 @@ class HallController extends Controller
      */
     public function index()
     {
-        return Hall::paginate(10);
+        return Hall::get();
     }
 
     /**
